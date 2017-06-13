@@ -25,12 +25,12 @@ public class _JFinalDemoGenerator {
 	
 	public static void main(String[] args) {
 		// base model 所使用的包名
-		String baseModelPackageName = "com.weibus.mvc.model.base";
+		String baseModelPackageName = "com.atom.mvc.model.base";
 		// base model 文件保存路径
-		String baseModelOutputDir = PathKit.getWebRootPath() + "/src/main/java/com/weibus/mvc/model/base";
+		String baseModelOutputDir = PathKit.getWebRootPath() + "/src/main/java/com/atom/mvc/model/base";
 		
 		// model 所使用的包名 (MappingKit 默认使用的包名)
-		String modelPackageName = "com.weibus.mvc.model";
+		String modelPackageName = "com.atom.mvc.model";
 		// model 文件保存路径 (MappingKit 与 DataDictionary 文件默认保存路径)
 		String modelOutputDir = baseModelOutputDir + "/..";
 		

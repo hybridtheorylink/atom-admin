@@ -12,7 +12,10 @@ import com.atom.mvc.controller.base.BaseController;
 import com.atom.mvc.http.Request;
 import com.atom.mvc.http.Response;
 import com.atom.mvc.http.ResponseHeader;
+import com.atom.mvc.model.Syslog;
 import com.atom.mvc.service.base.IService;
+import com.atom.plugins.disruptor.DisruptorPlugin;
+import com.atom.plugins.disruptor.LogEvent;
 import com.atom.tools.DateTimeKit;
 import com.atom.tools.FileInfo;
 import com.atom.tools.FileUploderKit;
@@ -20,6 +23,7 @@ import com.jfinal.core.ApplicationContextKit;
 import com.jfinal.kit.HttpKit;
 import com.jfinal.kit.StrKit;
 import com.jfinal.upload.UploadFile;
+import com.lmax.disruptor.RingBuffer;
 
 
 public class CommonController extends BaseController {
@@ -110,8 +114,15 @@ public class CommonController extends BaseController {
 		Date over = new Date();
 		long execute_time = over.getTime() - date.getTime();
 		logger.debug(r.getHeader().getTrcode() + " execute time is :" + execute_time + " ms");
+
+		Syslog syslog = new Syslog();
+		
+		
+		
 		return;
 	}
+	
+
 
 	
 	public void fileUpload(){
@@ -133,7 +144,6 @@ public class CommonController extends BaseController {
 		String url = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=81TsvvMJ2_2uaH6yF-CVPgqUNqeq1A8gU2biEf_biJCCZ-WQpwu1O_UMlGOJ9RIYZl348cwqIhlMSYSDESbkyAK50YwULpeEgK4KOQ1IeM0";
 		String res = HttpKit.post(url, JSON.toJSONString(param));
 		System.out.println(res);
-		
 	}
 	
 

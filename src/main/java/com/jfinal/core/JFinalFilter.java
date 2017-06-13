@@ -101,7 +101,7 @@ public class JFinalFilter implements Filter {
 //			temp = Class.forName(configClass).newInstance();
 			temp = ApplicationContextKit.registerJFinalConfig(configClass);
 		} catch (Exception e) {
-			throw new RuntimeException("Can not create instance of class: " + configClass, e);
+			throw e;
 		}
 		
 		if (temp instanceof JFinalConfig) {
