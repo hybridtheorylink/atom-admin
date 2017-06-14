@@ -14,8 +14,6 @@ import com.atom.mvc.http.Response;
 import com.atom.mvc.http.ResponseHeader;
 import com.atom.mvc.model.Syslog;
 import com.atom.mvc.service.base.IService;
-import com.atom.plugins.disruptor.DisruptorPlugin;
-import com.atom.plugins.disruptor.LogEvent;
 import com.atom.tools.DateTimeKit;
 import com.atom.tools.FileInfo;
 import com.atom.tools.FileUploderKit;
@@ -23,7 +21,6 @@ import com.jfinal.core.ApplicationContextKit;
 import com.jfinal.kit.HttpKit;
 import com.jfinal.kit.StrKit;
 import com.jfinal.upload.UploadFile;
-import com.lmax.disruptor.RingBuffer;
 
 
 public class CommonController extends BaseController {
