@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-06-10 17:28:29
+Date: 2017-06-13 17:48:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -44,6 +44,33 @@ CREATE TABLE `sys_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Table structure for sys_syslog
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_syslog`;
+CREATE TABLE `sys_syslog` (
+  `id` varchar(64) NOT NULL,
+  `ip` varchar(128) DEFAULT NULL,
+  `starttime` datetime NOT NULL,
+  `endtime` datetime NOT NULL,
+  `cookie` varchar(256) DEFAULT NULL,
+  `token` varchar(64) DEFAULT NULL,
+  `method` varchar(16) DEFAULT NULL,
+  `url` varchar(256) DEFAULT NULL,
+  `action` varchar(64) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `useragent` varchar(64) DEFAULT NULL,
+  `optid` int(11) DEFAULT NULL,
+  `userid` int(11) DEFAULT NULL,
+  `content` varchar(256) DEFAULT NULL,
+  `response` text,
+  `trcode` varchar(64) DEFAULT NULL,
+  `error_code` varchar(16) DEFAULT NULL,
+  `trdate` datetime DEFAULT NULL,
+  `remark` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- Table structure for sys_user
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
@@ -62,7 +89,8 @@ CREATE TABLE `sys_user` (
   `error_count` int(11) DEFAULT NULL,
   `is_admin` int(11) DEFAULT NULL,
   `remark` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `INDEX_USER_PHONE` (`phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

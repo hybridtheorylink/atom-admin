@@ -18,6 +18,7 @@ public class _MappingKit {
 	public static void mapping(ActiveRecordPlugin arp) {
 		arp.addMapping("sys_permission", "id", Permission.class);
 		arp.addMapping("sys_role", "id", Role.class);
+		arp.addMapping("sys_syslog", "id", Syslog.class);
 		arp.addMapping("sys_user", "id", User.class);
 		arp.addMapping("sys_userrole", "id", Userrole.class);
 	}

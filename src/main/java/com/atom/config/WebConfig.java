@@ -1,9 +1,13 @@
+
 package com.atom.config;
 
 
 import javax.sql.DataSource;
 
 import com.atom.mvc.controller.CommonController;
+import com.atom.mvc.controller.MsgController;
+import com.atom.plugins.disruptor.DisruptorPlugin;
+import com.atom.plugins.mongo.plugin.MongoJFinalPlugin;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -17,6 +21,8 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.plugin.redis.RedisPlugin;
 import com.jfinal.template.Engine;
+
+import sun.net.www.content.text.plain;
 
 /**
  * 本 demo 仅表达最为粗浅的 jfinal 用法，更为有价值的实用的企业级用法
@@ -36,7 +42,7 @@ public class WebConfig extends JFinalConfig {
 	public static void main(String[] args) {
 		/**
 		 * 特别注意：Eclipse 之下建议的启动方式
-		 */ 
+		 */
 		JFinal.start("WebRoot", 8080, "/", 5);
 
 		/**
@@ -62,6 +68,7 @@ public class WebConfig extends JFinalConfig {
 //		me.add("/blog", BlogController.class);			// 第三个参数省略时默认与第一个参数值相同，在此即为 "/blog"
 //		me.add("/api", CommonController.class);
 		me.add("/api", CommonController.class);
+		me.add("/msg", MsgController.class);
 		
 	}
 	
@@ -94,6 +101,14 @@ public class WebConfig extends JFinalConfig {
 //		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
 		// 所有映射在 MappingKit 中自动化搞定
 //		_MappingKit.mapping(arp);
+		MongoJFinalPlugin mongo = new MongoJFinalPlugin();
+		mongo.add("127.0.0.1",27017);
+		mongo.setDatabase("atom");
+		me.add(mongo);
+		me.add(arp);
+		
+		DisruptorPlugin disruptor = new DisruptorPlugin();
+	    me.add(disruptor);
 	}
 	
 	/**
