@@ -4,7 +4,6 @@ package com.atom.config;
 import javax.sql.DataSource;
 
 import com.atom.mvc.controller.CommonController;
-import com.cybermkd.mongo.plugin.MongoJFinalPlugin;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -95,11 +94,6 @@ public class WebConfig extends JFinalConfig {
 //		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
 		// 所有映射在 MappingKit 中自动化搞定
 //		_MappingKit.mapping(arp);
-		MongoJFinalPlugin mongo = new MongoJFinalPlugin();
-		mongo.add("127.0.0.1",27017);
-		mongo.setDatabase("atom");
-		me.add(mongo);
-		me.add(arp);
 	}
 	
 	/**

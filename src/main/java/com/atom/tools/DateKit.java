@@ -12,9 +12,9 @@ import java.util.*;
  * 日期时间相关
  *
  */
-public abstract class DateTimeKit {
+public abstract class DateKit {
 
-	private static Logger log = Logger.getLogger(DateTimeKit.class);
+	private static Logger log = Logger.getLogger(DateKit.class);
 
 	public static final String pattern_ymd = "yyyy-MM-dd"; // pattern_ymd
 	public static final String pattern_ymd_hms = "yyyy-MM-dd HH:mm:ss"; // pattern_ymdtime
