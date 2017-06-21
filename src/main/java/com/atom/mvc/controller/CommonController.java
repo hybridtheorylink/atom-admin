@@ -28,7 +28,7 @@ public class CommonController extends BaseController {
 //		String jsonpCallback = getPara("jsonpCallback");
 		content = StringUtils.trim(content);
 		String method = getRequest().getMethod().toUpperCase();
-		// 解密报文
+		// 解密报文 
 
 		Response response = new Response();
 		ResponseHeader header = new ResponseHeader();

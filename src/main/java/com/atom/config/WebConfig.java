@@ -36,7 +36,7 @@ public class WebConfig extends JFinalConfig {
 	public static void main(String[] args) {
 		/**
 		 * 特别注意：Eclipse 之下建议的启动方式
-		 */
+		 */ 
 		JFinal.start("WebRoot", 8080, "/", 5);
 
 		/**
