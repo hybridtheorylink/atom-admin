@@ -86,8 +86,8 @@ public class WebConfig extends JFinalConfig {
 	 */
 	public void configPlugin(Plugins me) {
 		// 配置C3p0数据库连接池插件
-		RedisPlugin redis = new RedisPlugin("weibus", "localhost");
-		me.add(redis);
+//		RedisPlugin redis = new RedisPlugin("weibus", "localhost");
+//		me.add(redis);
 		DataSource dataSource = ApplicationContextKit.getBean("druidDataSource");
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(dataSource);
 //		arp.setDevMode(true);
@@ -101,11 +101,11 @@ public class WebConfig extends JFinalConfig {
 //		ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
 		// 所有映射在 MappingKit 中自动化搞定
 //		_MappingKit.mapping(arp);
-		MongoJFinalPlugin mongo = new MongoJFinalPlugin();
-		mongo.add("127.0.0.1",27017);
-		mongo.setDatabase("atom");
-		me.add(mongo);
-		me.add(arp);
+//		MongoJFinalPlugin mongo = new MongoJFinalPlugin();
+//		mongo.add("127.0.0.1",27017);
+//		mongo.setDatabase("atom");
+//		me.add(mongo);
+//		me.add(arp);
 		
 		DisruptorPlugin disruptor = new DisruptorPlugin();
 	    me.add(disruptor);
