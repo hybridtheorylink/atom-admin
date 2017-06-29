@@ -1,0 +1,8 @@
+.navbar-top-links li{
+	margin: 0 20px!important;
+}
+
+.nav>li>a i{
+	margin-left: 10px!important;
+	margin-right: 15px;
+}

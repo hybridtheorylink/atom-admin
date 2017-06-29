@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>用户信息</title>
+		<link href="../../plugin/hplus/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../../plugin/hplus/css/font-awesome.min93e3.css" rel="stylesheet">
+		<link href="../../plugin/hplus/css/animate.min.css" rel="stylesheet">
+		<link href="../../plugin/hplus/css/style.min862f.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../plugin/hplus/css/plugins/bootstrap-table/bootstrap-table.min.css" />
+		<style>
+			@media only screen and (min-width: 1366px) and (max-width: 1600px) {
+				.search.col-sm-1,.add.col-sm-1{
+					margin: 0 20px!important;
+				}
+				.m-t {
+					margin-top: 10px;
+				}
+				.wrapper-content {
+					padding-top: 10px;
+					padding-bottom: 10px;
+				}
+				.table-responsive {
+					margin-top: 30px;
+				}
+			}
+			
+			@media only screen and (max-width: 1366px) {
+				label.col-sm-1 {
+					padding-left: 5px;
+					padding-right: 5px;
+				}
+				.search.col-sm-1,.add.col-sm-1{
+					margin: 0 10px!important;
+				}
+				.m-t {
+					margin-top: 5px;
+				}
+				.wrapper-content {
+					padding-top: 5px;
+					padding-bottom: 0px;
+				}
+				.table-responsive {
+					margin-top: 10px;
+				}
+			}
+		</style>
+	</head>
+
+	<body class="">
+		<div class="wrapper wrapper-content animated fadeInRight" style="overflow: auto;">
+			<form class="form-horizontal m-t col-sm-12" id="content_box">
+				<label class="col-sm-1 control-label">登录账号：</label>
+				<div class="col-sm-2">
+					<input class="form-control" name="account" id="account" />
+				</div>
+				<label class="col-sm-1 control-label">手机号：</label>
+				<div class="col-sm-2">
+					<input class="form-control" name="telphone" id="telphone" />
+				</div>
+				<button class="btn btn-w-m btn-success col-sm-1 search" v-on:click.prevent="searchBtn"><i class=" glyphicon glyphicon-search"></i>查询</button>
+				<button class="btn btn-w-m btn-warning col-sm-1 add" v-on:click.prevent="addNew"><i class=" glyphicon glyphicon-plus"></i>新增</button>
+			</form>
+			<!--数据展示表格-->
+			<div class="table-responsive col-sm-12">
+				<table class="col-sm-12 table table-hover" id="tab" data-id="row.companyID" data-show-columns="true" data-pagination="true" data-show-refresh="true" data-search="true"></table>
+			</div>
+		</div>
+		<script src="../../plugin/hplus/js/jquery.min.js"></script>
+		<script src="../../plugin/hplus/js/jquery.cookie.js"></script>
+		<script src="../../plugin/hplus/js/vue.js"></script>
+		<script src="../../plugin/hplus/js/bootstrap.min.js"></script>
+		<script src="../../plugin/hplus/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+		<script src="../../plugin/hplus/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+		<script src="../../plugin/hplus/js/demo/bootstrap-table-demo.min.js"></script>
+		<script src="../../plugin/hplus/js/plugins/layer/layer.min.js"></script>
+		<script src="../../plugin/hplus/js/plugins/layer/laydate/laydate.js"></script>
+		<script src="../../plugin/hplus/js/content.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				search();
+			})
+			function checkData(res) {
+				return res
+			}
+			function search() {
+				$('#tab').bootstrapTable('destroy');
+				$('#tab').bootstrapTable({
+					method: 'get', //请求方式（*）
+					url: "/car.do", //请求后台的URL（*）
+					cache: false,
+					strictSearch: true,
+					height: "",
+					striped: true, //是否显示行间隔色
+					pagination: true, //是否显示分页（*）
+					//        pageList:[ 10, 20,50,100 ],//可供选择的每页的行数（*）
+					pageSize: 8, //每页的记录行数（*）
+					pageNumber: 1, //初始化加载第一页，默认第一页
+					sidePagination: 'client', //分页方式：client客户端分页，server服务端分页（*）
+					contentType: "application/x-www-form-urlencoded",
+					queryParams: queryParams, //传递参数（*）表示每次发送给服务器的参数，可以添加自己需要的参数
+					queryParamsType: 'undefined', // undefined
+					sortable: true, //是否启用排序
+					sortName: "carNo",
+					sortOrder: "desc", //排序方式
+					search: false, //不显示 搜索框 
+					showColumns: false,
+					showRefresh: false,
+					responseHandler: checkData,
+					columns: [{
+							field: 'check',
+							checkbox: true,
+						},
+						{
+							field: 'operatorName',
+							title: '用户名',
+							valign: 'middle',
+							sortable: true,
+						}, {
+							field: 'str',
+							title: '登录账号',
+							valign: 'middle',
+						}, {
+							field: 'createTime',
+							title: '创建时间',
+							align: 'center',
+							valign: 'middle',
+							sortable: true
+						}, {
+							field: 'companyShortName',
+							title: '所属公司',
+							align: 'center',
+							valign: 'middle',
+						}, {
+							field: 'carRentStatus',
+							title: '部门',
+							align: 'center',
+							valign: 'middle',
+							//							formatter: carRentStatusFormatter
+						}, {
+							field: 'carStatus',
+							title: '职务',
+							align: 'center',
+							valign: 'middle',
+							//							formatter: carStatusFormatter
+						}, {
+							field: 'electricity',
+							title: '电话',
+							align: 'center',
+							valign: 'middle'
+						}, {
+							field: 'remainKON',
+							title: '状态',
+							align: 'center',
+							valign: 'middle'
+						}, {
+							field: 'remainKON',
+							title: '角色名称',
+							align: 'center',
+							valign: 'middle'
+						}, {
+							field: 'remainKON',
+							title: '备注',
+							align: 'center',
+							valign: 'middle'
+						}, {
+							field: 'operate',
+							title: '操作',
+							valign: 'middle',
+							//							formatter: operateFormatter,
+							//							events: operateEvents
+						}
+					],
+					onLoadSuccess: function(data) {
+
+					},
+					onLoadError: function() {
+						layer.msg('服务器异常，请稍后重试');
+					}
+				});
+			}
+			//请求数据传递
+			var sn;
+			var so;
+
+			function queryParams(params) {
+				sn = params.sortName;
+				so = params.sortOrder;
+				return {
+					pageSize: params.pageSize,
+					pageNumber: params.pageNumber,
+					sortName: params.sortName,
+					sortOrder: params.sortOrder,
+					companyID: "",
+					status: $('#rentCarStatus').val()
+				};
+			};
+			//添加操作按钮
+			function operateFormatter(value, row, index) {
+				return [
+					'<button class="edit btn btn-primary btn-xs">修改信息</button>',
+					'<button class="control btn btn-success btn-xs">车辆控制</button>',
+					'<button class="detail btn btn-warning btn-xs">车辆详情</button>'
+				].join('');
+			}
+
+			////创建模态框变量
+			var layerIndex;
+			window.operateEvents = {
+				//	修改信息
+				"click .edit": function(e, value, row, index) {
+					layerIndex = layer.open({
+						type: 1,
+						title: ["修改车辆信息", 'font-size:18px;color:#666'],
+						closeBtn: 1,
+						area: "600px",
+						offset: "55px",
+						shadeClose: true,
+						skin: 'demo-class',
+						content: $('#editCarTable'),
+					});
+					editVm.getInfo(row)
+				},
+				//	车辆控制
+				"click .control": function(e, value, row, index) {
+					$(".controlBtn").attr('data-carid', row.carID);
+					layerIndex = layer.open({
+						type: 1,
+						title: ["车辆控制", 'font-size:18px;color:#666'],
+						closeBtn: 1,
+						area: "600px",
+						offset: "55px",
+						shadeClose: true,
+						skin: 'demo-class',
+						content: $('#carControlTable'),
+					});
+					controlVm.clickBtn()
+				},
+				// 车辆详情
+				"click .detail": function(e, value, row, index) {
+					layerIndex = layer.open({
+						type: 1,
+						title: ["车辆详情", 'font-size:18px;color:#666'],
+						closeBtn: 1,
+						area: "600px",
+						offset: "55px",
+						shadeClose: true,
+						skin: 'demo-class',
+						content: $('#carDetailTable'),
+					});
+					showVm.detailShow(row)
+				}
+			}
+		</script>
+	</body>
+
+</html>

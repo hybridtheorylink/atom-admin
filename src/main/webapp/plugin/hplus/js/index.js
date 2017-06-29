@@ -1,0 +1,1 @@
+$(".userName").text($.cookie("loginName"))

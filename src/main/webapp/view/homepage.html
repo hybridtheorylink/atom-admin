@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>首页</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="../plugin/hplus/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../plugin/hplus/css/font-awesome.min93e3.css" rel="stylesheet">
+		<link href="../plugin/hplus/css/animate.min.css" rel="stylesheet">
+		<link href="../plugin/hplus/css/style.min862f.css" rel="stylesheet">
+		<link rel="stylesheet" href="../plugin/hplus/css/homepage.css" />
+	</head>
+
+	<body class="gray-bg">
+		<form class="form-horizontal m-t" id="content_box">
+			<div class="form-group col-sm-4">
+				<label class="col-sm-3 control-label">开始时间：</label>
+				<div class="col-sm-9">
+					<input class="form-control laydate-icon layer-date" placeholder="YYYY-MM-DD hh:mm:ss" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+				</div>
+			</div>
+			<div class="form-group col-sm-4">
+				<label class="col-sm-3 control-label">结束时间：</label>
+				<div class="col-sm-9">
+					<input class="form-control laydate-icon layer-date" placeholder="YYYY-MM-DD hh:mm:ss" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+				</div>
+			</div>
+			<div class="form-group col-sm-4">
+				<button type="button" class="btn btn-w-m btn-success col-sm-2" id="search_btn">搜索</button>
+				<button type="button" class="btn btn-w-m btn-warning col-sm-2" id="reset_btn">重置</button>
+			</div>
+			<div class="form-group col-sm-12">
+				<button type="button" class="btn btn-w-m btn-warning col-sm-1 date_btn today">今天</button>
+				<button type="button" class="btn btn-w-m btn-warning col-sm-1 date_btn yesterday">昨天</button>
+				<button type="button" class="btn btn-w-m btn-warning col-sm-1 date_btn beforeYesterday">前天</button>
+				<button type="button" class="btn btn-w-m btn-warning col-sm-1 date_btn week">本周</button>
+				<button type="button" class="btn btn-w-m btn-warning col-sm-1 date_btn lastWeek">上周</button>
+				<button type="button" class="btn btn-w-m btn-warning col-sm-1 date_btn month">本月</button>
+				<button type="button" class="btn btn-w-m btn-warning col-sm-1 date_btn lastMonth">上月</button>
+			</div>
+			<div class="col-sm-12 total_data_box">
+				<div class="col-sm-3 data-box first_data_box">	
+					<ul class="col-sm-12 data-list">
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">全部已注册</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">已认证</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">认证中</p>
+						</li>						
+					</ul>
+					<ul class="col-sm-12 data-list">
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">新增已注册</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">已认证</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">认证中</p>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-3 data-box">
+					<ul class="col-sm-12 data-list">
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">全部已注册</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">已认证</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">认证中</p>
+						</li>						
+					</ul>
+					<ul class="col-sm-12 data-list">
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">新增已注册</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">已认证</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">认证中</p>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-3 data-box">
+					<ul class="col-sm-12 data-list">
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">全部已注册</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">已认证</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">认证中</p>
+						</li>						
+					</ul>
+					<ul class="col-sm-12 data-list">
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">新增已注册</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">已认证</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">认证中</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-12 total_data_box bottom_box">
+				<div class="col-sm-3 data-box first_data_box">
+					<ul class="col-sm-12 data-list">
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">全部已注册</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">已认证</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">认证中</p>
+						</li>						
+					</ul>
+					<ul class="col-sm-12 data-list">
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">新增已注册</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">已认证</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">认证中</p>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-3 data-box">
+					<ul class="col-sm-12 data-list">
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">全部已注册</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">已认证</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">认证中</p>
+						</li>						
+					</ul>
+					<ul class="col-sm-12 data-list">
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">新增已注册</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">已认证</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">认证中</p>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-3 data-box">
+					<ul class="col-sm-12 data-list">
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">全部已注册</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">已认证</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">认证中</p>
+						</li>						
+					</ul>
+					<ul class="col-sm-12 data-list">
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">新增已注册</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">已认证</p>
+						</li>
+						<li class="col-sm-4">
+							<p>0</p>
+							<p class="title">认证中</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+		</form>			
+		<script src="../plugin/hplus/js/jquery.min.js"></script>
+		<script src="../plugin/hplus/js/bootstrap.min.js"></script>
+		<script src="../plugin/hplus/js/plugins/layer/layer.min.js"></script>
+		<script src="../plugin/hplus/js/content.min.js"></script>
+		<script src="../plugin/hplus/js/welcome.min.js"></script>
+		<script src="../plugin/hplus/js/plugins/layer/laydate/laydate.js"></script>
+	</body>
+	<!-- Mirrored from www.zi-han.net/theme/hplus/index_v1.html?v=4.0 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:20 GMT -->
+
+</html>
