@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>用户信息</title>
+		<link href="../../plugin/hplus/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../../plugin/hplus/css/font-awesome.min93e3.css" rel="stylesheet">
+		<link href="../../plugin/hplus/css/animate.min.css" rel="stylesheet">
+		<link href="../../plugin/hplus/css/style.min862f.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../plugin/hplus/css/plugins/bootstrap-table/bootstrap-table.min.css" />
+		<style>
+			.remark{
+				resize: none;
+				height: 45px;
+				width: 100%;
+			}
+			.table{
+				margin-bottom: 0!important;
+			}
+			.cancleBtn{
+				margin-left: 30%!important;
+			}
+			.addBtn{
+				margin-left: 20px;
+			}
+			@media only screen and (min-width: 1366px) and (max-width: 1600px) {
+				.search.col-sm-1,.add.col-sm-1{
+					margin: 0 20px!important;
+				}
+				.m-t {
+					margin-top: 10px;
+				}
+				.wrapper-content {
+					padding-top: 10px;
+					padding-bottom: 10px;
+				}
+				.table-responsive {
+					margin-top: 30px;
+				}
+			}
+			
+			@media only screen and (max-width: 1366px) {
+				label.col-sm-1 {
+					padding-left: 5px;
+					padding-right: 5px;
+				}
+				.search.col-sm-1,.add.col-sm-1{
+					margin: 0 10px!important;
+				}
+				.m-t {
+					margin-top: 5px;
+				}
+				.wrapper-content {
+					padding-top: 5px;
+					padding-bottom: 0px;
+				}
+				.table-responsive {
+					margin-top: 10px;
+				}
+			}
+		</style>
+	</head>
+
+	<body class="">
+		<table class="table table-bordered" id="addTable">
+			<tr>
+				<td class="col-sm-3">登录账号</td>
+				<td class="col-sm-3">
+					<input type="text" class="loginAccount" />
+				</td>
+				<td class="col-sm-3">登录密码</td>
+				<td class="col-sm-3">
+					<input type="text" class="loginPassword" />
+				</td>
+			</tr>
+			<tr>
+				<td class="col-sm-3">用户名称</td>
+				<td class="col-sm-3">
+					<input type="text" class="userName" />
+				</td>
+				<td class="col-sm-3">手机号</td>
+				<td class="col-sm-3">
+					<input type="text" class="tel"/>
+				</td>
+			</tr>
+			<tr>
+				<td class="col-sm-3">所属公司</td>
+				<td class="col-sm-3">
+					<select name="" class="pCompany">
+						<option value=""></option>
+					</select>
+				</td>
+				<td class="col-sm-3">部门</td>
+				<td class="col-sm-3">
+					<select name="" class="team">
+						<option value=""></option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="col-sm-3">所属角色</td>
+				<td class="col-sm-3">
+					<select name="" class="role">
+						<option value=""></option>
+					</select>
+				</td>
+				<td class="col-sm-3">所属巡检组</td>
+				<td class="col-sm-3">
+					<select name="" class="checkTeam">
+						<option value=""></option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="col-sm-3">备注</td>
+				<td class="col-sm-3" colspan="3">
+					<textarea class="remark"></textarea>
+				</td>				
+			</tr>
+			<tr>
+				<td class="col-sm-12" colspan="4">
+					<button class="btn btn-w-m btn-warning col-sm-1 cancleBtn" v-on:click.prevent="addCancle">取消</button>
+					<button class="btn btn-w-m btn-success col-sm-1 addBtn" v-on:click.prevent="addSubmit">提交</button>
+				</td>
+			</tr>
+		</table>
+		<script src="../../plugin/hplus/js/jquery.min.js"></script>
+		<script src="../../plugin/hplus/js/jquery.cookie.js"></script>
+		<script src="../../plugin/hplus/js/vue.js"></script>
+		<script src="../../plugin/hplus/js/bootstrap.min.js"></script>
+		<script src="../../plugin/hplus/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+		<script src="../../plugin/hplus/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+		<script src="../../plugin/hplus/js/demo/bootstrap-table-demo.min.js"></script>
+		<script src="../../plugin/hplus/js/plugins/layer/layer.min.js"></script>
+		<script src="../../plugin/hplus/js/plugins/layer/laydate/laydate.js"></script>
+		<script src="../../plugin/hplus/js/content.min.js"></script>
+		<script>
+			var addTableVm = new Vue({
+				el:"#addTable",
+				data:{
+					datas:[]
+				},
+				methods:{
+					addCancle:function(){
+						parent.layer.closeAll() 
+					},
+					addSubmit:function(){	
+						
+					}
+					
+				}
+			})
+			
+		</script>
+	</body>
+
+</html>
