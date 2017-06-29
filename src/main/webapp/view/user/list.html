@@ -229,7 +229,7 @@
 		//添加操作按钮
 		function operateFormatter(value, row, index) {
 			return [
-				'<button class="edit btn btn-primary btn-xs">修改信息</button>',
+				'<button class="edit btn btn-primary btn-xs">编辑信息</button>',
 				'<button class="control btn btn-success btn-xs">车辆控制</button>',
 				'<button class="detail btn btn-warning btn-xs">车辆详情</button>'
 			].join('');
@@ -241,14 +241,14 @@
 			//	修改信息
 			"click .edit": function(e, value, row, index) {
 				layerIndex = layer.open({
-					type: 1,
-					title: ["修改车辆信息", 'font-size:18px;color:#666'],
+					type: 2,
+					title: ["修改用户信息", 'font-size:18px;color:#666'],
 					closeBtn: 1,
-					area: "600px",
+					area: ["600px","310px"],
 					offset: "55px",
 					shadeClose: true,
 					skin: 'demo-class',
-					content: $('#editCarTable'),
+					content: "edit.html",
 				});
 				//					editVm.getInfo(row)
 			},
